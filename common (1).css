@@ -1,0 +1,121 @@
+body{
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Nanum Sqaure' ,sans-serif;
+    line-height: 1.8em;
+    /* 높이에 em을 쓰면 em은 부모요소의 폰트 크기에 따라
+    자동으로 조정된다. 반응형에도 작동한다. 각 줄 사이 높이가
+    더 증가해 가독성이 좋아 보인다. 
+    */
+    text-rendering: optimizeLegibility;
+    /* 가독성을 높여줌,글자 사이 간격 조정, f글자 둥글게와 산셰리프 개선*/
+    -webkit-font-smoothing: antialiased;
+    /* ios에서만 작동 */
+    color: #3c3c3c;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul, li{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+}
+
+a{
+    color: #3c3c3c;
+    text-decoration: none;
+    /* a태그의 연결선을 제거한다. */
+}
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 48px;
+    /* 높이 기준, 세로정렬 영향 요소1 */
+    padding-top: 25px;
+    /* 세로 정렬에 영향을 준 영향 요소2, 전체
+        컨텐츠들이 위로부터 일정 공간 떨어지게 px를 줬다.
+    */
+    font-weight: 700;
+    color: #3c3c3c;
+    border-bottom: 1px solid #EFEFEF;
+}
+/* 전체 상단메뉴 틀에 적용될 클래스이며, 가로폭은 화면 꽉차게,
+    높이는 적당한 px의 높이, 패딩 탑을 줘서 약간 글이 떨어지게 하고,
+    알맞은 폰트 크기와 부드러운 검은 글씨색, 보더 바탕에 회색 음영을 줘본다.
+*/
+
+.header .logo_section{
+    position: absolute;
+    left: 30px;
+    /* top: 29px; */
+    z-index: 5;
+    width: 50px;
+    /* 로고 위해 새로 맞추기 */
+    height: 40px;
+    top: 50%; /* 수직 중앙: 위 상단 기준 이동 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+    /* 해당 요소의 y좌표 이동의 의미로 y상 자신 크기의 50% 위로 이동. */
+}
+
+/* 로고 섹션이며, 상단에 로고를 두어 틀의 원초적인 의미을 표현한다.
+   앱솔루트시에는 상위 렐라티브를 기준으로 위치가 잡히고 위치가 사라짐에 따라,  
+   마치 float처럼, 밑의 요소들이 다 치고 올라오게 된다.
+   앱솔루트로 타이틀, 리스트 요소들이 다 겹치게 올라와 복잡해 졌는데, 
+   이럴때는 미리 배치를 어떤 식으로 하여 구성 요소 운영을 해 놓을지
+   계획도를 그려봐야 한다.
+*/
+/* 디브 안에 이미지 인라인블록이 있는데 튀어나와 버렸다. */
+
+.header .logo_section img{
+    height: 100%;
+    width: auto;
+    
+    /* 이렇게 까지 해도 이미지가 터져나온다. 어떤 식으로
+    공간 제한을 해야 하는가. 
+    부모에 앱솔이 걸리면, 자식은 div의 높이 제한이 풀려버린다.
+    높이 제한을 하려면 자기 자신 부모 박스의 헤이트 만큼만
+    커질수 있게 퍼센트를 준다.
+    */
+}
+
+.header .page_title {
+    font-size: 20px;
+    position: absolute;
+    left: 61px;
+    padding-left: 20px;
+    border-left: 1px solid #ddd;
+    /* 왜 줬나? */
+    line-height: 20px;
+    margin-top: 3px;
+    color: #b1b1b1;
+}
+
+
+.header .main_menu {
+    position: absolute;
+    right: 30px;
+    /* 헤더 부분 내에서는 첫번째 앱솔루트 하 어지럽게 겹치는 
+    다른 앱솔루트 배치는 끝까지 적용한다. 
+    어차피 무너진 앱솔루트 하 배치에서는 밑의 디브들도 덩달아 
+    절대 포지션으로 안겹치게 해준다.
+    안에 ul들어있는 div를 앱솔루트 적용 후, 우측 이동했다.*/
+}   
+
+.header .main_menu ul li{
+    margin: 0px 15px;
+    cursor: pointer;
+    display: inline-block;
+    /* 이 돔에서는 가로 배열을 위하여 li에 인라인 블록을 택했다. */
+}
+
+.header .main_menu ul li.login_menu{
+    border-left: 1px solid #ddd;
+    padding-left: 30px;
+    /* 로그인 버튼 용 넓히기 */
+}
+/* 메뉴로 인라인 블록 사용시 헤더를 렐라티브로 기준으로 삼고 
+    다른 산하 요소들에 앱솔루트로 좌우만 적용하여 정렬을
+    맞춘다.
+*/
