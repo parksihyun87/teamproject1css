@@ -29,6 +29,13 @@
     font-weight: bold;
 }
 
+- 공통적으로 작은 글씨 출력
+span{
+    font-size: 15px;
+}
+
+
+
 . bt_0 {
     임의의 버튼 엄마 만들어보겠음
 }
